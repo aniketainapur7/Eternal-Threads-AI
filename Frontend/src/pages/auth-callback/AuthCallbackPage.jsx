@@ -29,7 +29,7 @@ const AuthCallbackPage = () => {
 			} finally {
 				const res = await axiosInstance.get("/auth/checkfilled")
 				console.log(res);
-				if(res.data.success == true){
+				if(res.data.success){
 					navigate("/home");
 				}else{
 					navigate('/preferences')

@@ -9,15 +9,24 @@ import {
 import AuthCallbackPage from './pages/auth-callback/AuthCallbackPage';
 import LandingPage from './pages/LandingPage';
 import Mainlayout from './layout/Mainlayout';
-import ProductPage from './pages/payment-test/ProductPage';
-import SearchPage from "./pages/SearchPage";
-import MeeshoProducts from "./pages/MeeshoProducts";
-import Home from "./pages/home/Homepage";
 import FashionPreferencesForm from "./pages/preference-form/FashionPreferencesForm";
+import Homepage from "./pages/home/Homepage";
+import Brands from "./pages/brands/Brands";
+import Friends from "./pages/friends/Friends";
+import TrendingPage from "./pages/trending/Trending";
+import Occasional from "./pages/occasional/Occasional";
+import ProfilePage from "./pages/profile/ProfilePage";
+import Wishlist from "./pages/wishlist/WishList";
+import ThreadBot from "./pages/chatbot/ThreadBot";
+import { Toaster } from "react-hot-toast";
+import ConnectWithDesigners from "./pages/designers/ConnectWithDesigners";
+import AiMashups from "./pages/wishlist/AiMashups";
+import FacialRecommend from "./pages/facial-recommend/FacialRecommend";
 
 function App() {
   return (
     <>
+    <Toaster/>
       <Routes>
         {/* Clerk redirect handling */}
         <Route
@@ -28,15 +37,7 @@ function App() {
 
         {/* Public routes */}
         <Route path="/" element={<LandingPage />} />
-
-        {/* <Route
-          path="/post-auth"
-          element={
-            <ProtectedRoute>
-              <PostAuthRedirect />
-            </ProtectedRoute>
-          }
-        /> */}
+        
         <Route
           path="/preferences"
           element={
@@ -49,52 +50,96 @@ function App() {
         {/* Protected routes */}
         <Route element={<Mainlayout />}>
           <Route
-            path="/dashboard"
-            element={
-              <ProtectedRoute>
-                {/* <DashboardRouter /> */}
-                {/* <SearchPage/> */}
-                <MeeshoProducts />
-              </ProtectedRoute>
-            }
-          />
-          <Route
             path="/home"
             element={
               <ProtectedRoute>
-                <Home />
+                <Homepage/>
               </ProtectedRoute>
             }
           />
           <Route
-            path="/dashboard"
+            path="/trending"
             element={
               <ProtectedRoute>
-                {/* <DashboardRouter /> */}
-                {/* <SearchPage/> */}
-                <MeeshoProducts />
+                <TrendingPage/>
               </ProtectedRoute>
             }
           />
           <Route
-            path="/dashboard"
+            path="/friends"
             element={
               <ProtectedRoute>
-                {/* <DashboardRouter /> */}
-                {/* <SearchPage/> */}
-                <MeeshoProducts />
+                <Friends/>
               </ProtectedRoute>
             }
           />
           <Route
-            path="/payment"
+            path="/Occasional"
             element={
               <ProtectedRoute>
-                <ProductPage />
+                <Occasional/>
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/brands"
+            element={
+              <ProtectedRoute>
+                <Brands/>
+              </ProtectedRoute>
+            }
+          />
+           <Route
+            path="/profile"
+            element={
+              <ProtectedRoute>
+                <ProfilePage/>
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/wishlist"
+            element={
+              <ProtectedRoute>
+                <Wishlist/>
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/chatbot"
+            element={
+              <ProtectedRoute>
+                <ThreadBot/>
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/designers"
+            element={
+              <ProtectedRoute>
+                <ConnectWithDesigners/>
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/ai-mashups"
+            element={
+              <ProtectedRoute>
+                <AiMashups/>
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/face-recommend"
+            element={
+              <ProtectedRoute>
+                <FacialRecommend/>
               </ProtectedRoute>
             }
           />
         </Route>
+        
 
         {/* Fallback */}
         <Route path="*" element={<Navigate to="/" />} />
@@ -117,45 +162,3 @@ function ProtectedRoute({ children }) {
   );
 }
 
-function DashboardRouter() {
-  const { user } = useUser();
-
-  if (!user) return null;
-
-  // Assuming you store roles in user.publicMetadata.role
-  const role = "role1";
-
-  if (role === "role1") {
-    return <Role1Dashboard user={user} />;
-  } else if (role === "role2") {
-    return <Role2Dashboard user={user} />;
-  } else {
-    return (
-      <div className="m-10 text-xl font-bold text-red-500">
-        🚫 Unauthorized Access
-      </div>
-    );
-  }
-}
-
-function Role1Dashboard({ user }) {
-  return (
-    <div>
-      <h1 className="text-2xl font-bold text-amber-50 m-10">
-        Welcome Role 1, {user.firstName}
-      </h1>
-      <p>Email: {user.primaryEmailAddress?.emailAddress}</p>
-    </div>
-  );
-}
-
-function Role2Dashboard({ user }) {
-  return (
-    <div>
-      <h1 className="text-2xl font-bold text-green-500 m-10">
-        Welcome Role 2, {user.firstName}
-      </h1>
-      <p>Email: {user.primaryEmailAddress?.emailAddress}</p>
-    </div>
-  );
-}

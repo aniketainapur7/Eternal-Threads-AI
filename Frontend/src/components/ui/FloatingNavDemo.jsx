@@ -15,9 +15,19 @@ export function FloatingNavDemo() {
       icon: <IconSearch className="h-5 w-5 text-neutral-500 dark:text-white" />,
     },
     {
-      name: "Occasional",
-      link: "/",
+      name: "FriendZone",
+      link: "/friends",
       icon: <IconCategory className="h-5 w-5 text-neutral-500 dark:text-white" />,
+    },
+    {
+      name: "Occasional",
+      link: "/occasional",
+      icon: <IconCategory className="h-5 w-5 text-neutral-500 dark:text-white" />,
+    },
+    {
+      name: "Brands",
+      link: "/brands",
+      icon: <IconHeart className="h-5 w-5 text-neutral-500 dark:text-white" />,
     },
     {
       name: "Wishlist",

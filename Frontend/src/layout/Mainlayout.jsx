@@ -14,9 +14,9 @@ function Mainlayout() {
       <div className="flex flex-col flex-1 relative overflow-y-auto">
         
         {/* Floating Navigation */}
-        <div className="absolute top-4 left-0 right-0 z-50">
+        {/* <div className="absolute top-4 left-0 right-0 z-50">
           <FloatingNavDemo />
-        </div>
+        </div> */}
 
         {/* Page content */}
         <div className=""> {/* mt-16 gives space for floating nav */}

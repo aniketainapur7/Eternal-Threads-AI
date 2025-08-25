@@ -2,6 +2,7 @@ import { cn } from "../../utils/utils";
 import React, { useState, createContext, useContext } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { IconMenu2, IconX } from "@tabler/icons-react";
+import { Link } from "react-router-dom";
 
 const SidebarContext = createContext(undefined);
 
@@ -62,10 +63,10 @@ export const DesktopSidebar = ({
   return (
     <>
       <motion.div
-        className={cn(
-          "h-full px-4 py-4 hidden  md:flex md:flex-col bg-neutral-100 dark:bg-black w-[300px] shrink-0",
-          className
-        )}
+     className={cn(
+  "h-full px-4 py-4 hidden md:flex md:flex-col bg-red-900 backdrop-blur-xl shadow-md w-[300px] shrink-0",
+  className
+)}
         animate={{
           width: animate ? (open ? "300px" : "60px") : "300px",
         }}
@@ -131,8 +132,8 @@ export const SidebarLink = ({
 }) => {
   const { open, animate } = useSidebar();
   return (
-    <a
-      href={link.href}
+    <Link
+      to={link.href}
       className={cn("flex items-center justify-start gap-2  group/sidebar py-2", className)}
       {...props}>
       {link.icon}
@@ -144,6 +145,6 @@ export const SidebarLink = ({
         className="text-neutral-700 dark:text-neutral-200 text-sm group-hover/sidebar:translate-x-1 transition duration-150 whitespace-pre inline-block !p-0 !m-0">
         {link.label}
       </motion.span>
-    </a>
+    </Link>
   );
 };
