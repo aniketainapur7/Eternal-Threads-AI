@@ -36,11 +36,11 @@ export default function FacialRecommend() {
       formData.append("image", image);
       formData.append("gender", gender);
 
-      const response = await axios.post("https://54651f6s-5000.inc1.devtunnels.ms/faceskin", formData, {
+      const response = await axiosInstance.post("/faceskin", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       console.log(response)
-      setRecommendedResults(response.data.responseArray || []);
+      setRecommendedResults(response.data.products || []);
     } catch (error) {
       console.error("Recommendation failed:", error);
       alert("Failed to fetch recommendations");

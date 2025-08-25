@@ -195,19 +195,19 @@ export default function ThreadBot() {
   );
 }
 
-// Mock Recommendations Fallback
-const generateMockRecommendations = () => {
-  return Array.from({ length: 6 }).map((_, i) => ({
-    name: ["Elegant Dress", "Casual Tee", "Luxury Handbag", "Sneakers", "Boho Skirt", "Designer Jacket"][i % 6],
-    imageUrl: [
-      "https://source.unsplash.com/400x400/?fashion,dress",
-      "https://source.unsplash.com/400x400/?fashion,tee",
-      "https://source.unsplash.com/400x400/?fashion,handbag",
-      "https://source.unsplash.com/400x400/?fashion,sneakers",
-      "https://source.unsplash.com/400x400/?fashion,skirt",
-      "https://source.unsplash.com/400x400/?fashion,jacket",
-    ][i % 6],
-    price: (1000 + i * 500).toString(),
-    productLink: "https://example.com/product",
-  }));
-};
+// // Mock Recommendations Fallback
+// const generateMockRecommendations = () => {
+//   return Array.from({ length: 6 }).map((_, i) => ({
+//     name: ["Elegant Dress", "Casual Tee", "Luxury Handbag", "Sneakers", "Boho Skirt", "Designer Jacket"][i % 6],
+//     imageUrl: [
+//       "https://source.unsplash.com/400x400/?fashion,dress",
+//       "https://source.unsplash.com/400x400/?fashion,tee",
+//       "https://source.unsplash.com/400x400/?fashion,handbag",
+//       "https://source.unsplash.com/400x400/?fashion,sneakers",
+//       "https://source.unsplash.com/400x400/?fashion,skirt",
+//       "https://source.unsplash.com/400x400/?fashion,jacket",
+//     ][i % 6],
+//     price: (1000 + i * 500).toString(),
+//     productLink: "https://example.com/product",
+//   }));
+// };
